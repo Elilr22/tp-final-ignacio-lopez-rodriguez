@@ -140,6 +140,55 @@ curl -X DELETE http://localhost:3000/api/producto/ID_DE_PRODUCTO \
 
 ---
 
+## 🐶 Mascotas
+
+### 13. Obtener todas las mascotas (sin autenticación)
+
+```bash
+curl -X GET http://localhost:3000/api/mascotas
+```
+
+### 14. Obtener una mascota por ID (sin autenticación)
+
+```bash
+curl -X GET http://localhost:3000/api/mascotas/ID_DE_MASCOTA
+```
+
+### 15. Crear una mascota (sin autenticación)
+
+```bash
+curl -X POST http://localhost:3000/api/mascotas \
+  -H "Content-Type: application/json" \
+  -d '{
+    "nombre": "Firulais",
+    "tipo": "Perro",
+    "edad": 3,
+    "raza": "Labrador"
+  }'
+```
+
+### 16. Actualizar una mascota (sin autenticación)
+
+```bash
+curl -X PUT http://localhost:3000/api/mascotas/ID_DE_MASCOTA \
+  -H "Content-Type: application/json" \
+  -d '{
+    "nombre": "Firulais",
+    "tipo": "Perro",
+    "edad": 4,
+    "raza": "Labrador"
+  }'
+```
+
+### 17. Eliminar una mascota (sin autenticación)
+
+```bash
+curl -X DELETE http://localhost:3000/api/mascotas/ID_DE_MASCOTA
+```
+
+**Notas:** Reemplaza `ID_DE_MASCOTA` por el ObjectId de MongoDB correspondiente. Las rutas de mascotas no requieren token según la configuración actual.
+
+
 ## 🔒 Rutas Protegidas
 
 ### 13. Acceso público (sin autenticación)

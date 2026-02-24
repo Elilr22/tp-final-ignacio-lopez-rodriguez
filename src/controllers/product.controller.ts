@@ -12,7 +12,8 @@ export const createProduct = async (req: Request, res: Response) => {
 
     const product = await productService.createProduct(productData);
     return res.status(201).json(product);
-  } catch (error: any) {
+  }
+  catch (error: any) {
     console.log(error);
     if (error.code === 11000) {
       return res.status(400).json('duplicate key error');

@@ -46,6 +46,12 @@
     "password": "12345IG@"
   }'
 
+  curl -X POST http://localhost:3000/auth/register   -H "Content-Type: application/json"   -d '{
+    "username": "test1",
+    "email": "test1@example.com",
+    "password": "123456IG@"
+  }'
+
   Vamos a la base de datos y le cambiamos el rol a admin 
   ahora nos volvemos a loguear
 
@@ -58,13 +64,13 @@
 
 ###  nos devuelve un token 
 
-  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ODNkYWI4YmM0ZWNhNjdlN2E0OTU2YiIsInVzZXJuYW1lIjoiaWduYWNpbyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3MDI0OTAyMSwiZXhwIjoxNzcwMzM1NDIxLCJpc3MiOiJjdXJzby11dG4tYmFja2VuZCJ9.gJzTRJWZraHQKdKfBxaO6eakDFMxngw7EU0kSjjhuqA
+  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ODNkYWI4YmM0ZWNhNjdlN2E0OTU2YiIsInVzZXJuYW1lIjoiaWduYWNpbyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3MTgxMjU0MSwiZXhwIjoxNzcxODk4OTQxLCJpc3MiOiJjdXJzby11dG4tYmFja2VuZCJ9.gYZD2C7A-NMnaVkqwSycr6-mdqA0gzWXiOXWq3YIstQ
 
   curl -X GET http://localhost:3000/protected \
-  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ODNkYWI4YmM0ZWNhNjdlN2E0OTU2YiIsInVzZXJuYW1lIjoiaWduYWNpbyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3MDI0OTAyMSwiZXhwIjoxNzcwMzM1NDIxLCJpc3MiOiJjdXJzby11dG4tYmFja2VuZCJ9.gJzTRJWZraHQKdKfBxaO6eakDFMxngw7EU0kSjjhuqA"
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ODNkYWI4YmM0ZWNhNjdlN2E0OTU2YiIsInVzZXJuYW1lIjoiaWduYWNpbyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3MTgxMjU0MSwiZXhwIjoxNzcxODk4OTQxLCJpc3MiOiJjdXJzby11dG4tYmFja2VuZCJ9.gYZD2C7A-NMnaVkqwSycr6-mdqA0gzWXiOXWq3YIstQ"
 
   curl -X GET http://localhost:3000/admin \
-  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ODNkYWI4YmM0ZWNhNjdlN2E0OTU2YiIsInVzZXJuYW1lIjoiaWduYWNpbyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3MDI0OTAyMSwiZXhwIjoxNzcwMzM1NDIxLCJpc3MiOiJjdXJzby11dG4tYmFja2VuZCJ9.gJzTRJWZraHQKdKfBxaO6eakDFMxngw7EU0kSjjhuqA"
+  -H "Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY5ODNkYWI4YmM0ZWNhNjdlN2E0OTU2YiIsInVzZXJuYW1lIjoiaWduYWNpbyIsInJvbGUiOiJhZG1pbiIsImlhdCI6MTc3MTgxMjU0MSwiZXhwIjoxNzcxODk4OTQxLCJpc3MiOiJjdXJzby11dG4tYmFja2VuZCJ9.gYZD2C7A-NMnaVkqwSycr6-mdqA0gzWXiOXWq3YIstQ"
 
 
 

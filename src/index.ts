@@ -9,7 +9,7 @@ import { authenticate, authorize } from './middlewares/auth.middleware';
 import { connectDB } from './config/database';
 import { errorHandler } from './middlewares/error.middleware';
 import { AppError } from './types/appError';
-
+import mascotasRoutes from './routes/mascotas.routes';
 
 
 
@@ -24,9 +24,7 @@ app.use(cors())
 app.use(express.json());
 //esto me permite mostrar los archivos estaticos 
 app.use(express.static(path.join(__dirname, '..', 'public')));
-
 app.use('/auth', authRoutes);
-
 app.use(errorHandler);
 
 
@@ -37,16 +35,17 @@ app.get('/public', (req: Request, res: Response) => {
   });
 });
 
+//esta ruta requiere autenticación pero cualquier usuario autenticado puede acceder
 app.get('/protected', authenticate, (req, res) => {
   res.json({
-    message: 'Acceso permitido',
+    message: 'Acceso permitido esta es la ruta protegida',
   });
 });
 
 // Ruta de administrador (requiere autenticación y rol admin)
 app.get('/admin', authenticate, authorize(['admin']), (req, res) => {
   res.json({
-    message: 'Acceso de administrador permitido',
+    message: 'Acceso de administrador permitido esta es la ruta de admin',
   });
 });
 
@@ -58,6 +57,7 @@ app.get('/admin', authenticate, authorize(['admin']), (req, res) => {
 
 
 app.use('/api/producto', productsRoutes);
+app.use('/api/mascotas', mascotasRoutes);
 
 
 
