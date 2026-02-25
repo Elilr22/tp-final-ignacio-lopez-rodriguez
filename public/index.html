@@ -8,15 +8,17 @@
 </head>
 
 <body>
-  <h1>login veterinaria</h1>
-  <h2>patitas felices</h2>
-
+  <h1>Patitas felices</h1>
+  
 
   <div class="card">
     <h2>Iniciar sesión</h2>
     <form id="loginForm">
-      <input type="email" id="email" placeholder="Email" required />
-      <input type="password" id="password" placeholder="Contraseña" required />
+      <label for="email">Email:</label>
+      <input type="email" name="email" id="email" placeholder="Email" required />
+
+      <label for="password">Contraseña:</label>
+      <input type="password" name="password" id="password" placeholder="Contraseña" required />
       <button type="submit">Entrar</button>
       <div id="error" class="error"></div>
     </form>

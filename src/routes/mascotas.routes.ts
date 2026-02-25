@@ -5,7 +5,7 @@ import { authenticate, authorize } from "../middlewares/auth.middleware";
 
 const router = Router();
 
-router.get("/", mascotasController.getAllMascotas);
+router.get("/",authenticate,authorize(['admin']), mascotasController.getAllMascotas);
 router.get("/:id", mascotasController.getMascotaById);
 router.post("/",authenticate,authorize(['admin']), mascotasController.createMascota);
 router.put("/:id", authenticate,authorize(['admin']), mascotasController.updateMascota);

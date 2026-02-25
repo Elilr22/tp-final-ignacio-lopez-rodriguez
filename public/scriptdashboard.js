@@ -17,7 +17,21 @@ let mascotaEditandoId = null;
 
 //esta funcion es para mostrar las mascotas en el dashboard
 const getMascotas = async () => {
-    const respuestaServidor = await fetch("/api/mascotas")
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+        alert("No estás autenticado");
+        window.location.href = "/index.html";
+        return;
+    }
+
+
+    const respuestaServidor = await fetch("/api/mascotas", {
+        method: "GET",
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    });
     const mascotas = await respuestaServidor.json()
     console.log(mascotas)
 
@@ -26,6 +40,7 @@ const getMascotas = async () => {
 
     mascotas.forEach(mascota => {
         $section.innerHTML += `
+
         <div class="mascota">
             <h3>Nombre:${mascota.nombre}</h3>
             <p>Tipo:${mascota.tipo}</p>
@@ -36,10 +51,11 @@ const getMascotas = async () => {
             Actualizar
             </button>
 
-            <button onclick="borrarMascota('${mascota._id}')">
+            <button class="botonBorrar" onclick="borrarMascota('${mascota._id}')">
             Borrar
             </button>
         </div>
+        
         `
     })
 
