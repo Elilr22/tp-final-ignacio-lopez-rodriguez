@@ -4,7 +4,6 @@ import cors from 'cors'
 
 import 'dotenv/config';
 import authRoutes from './routes/auth.routes';
-import productsRoutes from './routes/product.routes';
 import { authenticate, authorize } from './middlewares/auth.middleware';
 import { connectDB } from './config/database';
 import { errorHandler } from './middlewares/error.middleware';
@@ -52,11 +51,6 @@ app.get('/admin', authenticate, authorize(['admin']), (req, res) => {
 
 
 
-
-
-
-
-app.use('/api/producto', productsRoutes);
 app.use('/api/mascotas', mascotasRoutes);
 
 
